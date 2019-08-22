@@ -14,6 +14,8 @@ app.use(express.urlencoded( { extended: false}));
 app.use(methodOverride("_method"));
 app.use(ejsLayouts);
 
+// CONTROLLERS
+app.use('/api', require('./controllers/api'));
 
 
 // render the citysearch view
@@ -51,6 +53,7 @@ app.post("/search", (req, res) => {
 
 // add the selected city to our favorites
 app.post("/favorites", (req, res) => {
+	console.log("favorites POST");
 	db.place.create(req.body)
 	.then(() => {
 		res.redirect("/favorites");
@@ -91,6 +94,10 @@ app.delete("/favorites/:id", (req, res) => {
 		res.send("ERROR deleting from favorites");
 	})
 })
+
+
+
+
 
 
 // Set up listener

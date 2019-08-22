@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     city: DataTypes.STRING,
     state: DataTypes.STRING,
     lat: DataTypes.REAL,
-    lon: DataTypes.REAL
+    long: DataTypes.REAL
   }, {});
   place.associate = function(models) {
     // associations can be defined here
